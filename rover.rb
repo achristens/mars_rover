@@ -68,7 +68,7 @@ class Rover
       end
     end
   end
-# speerate to individual letters and call appropriate method depending on the letter
+
   def instructions(string)
     characters = string.chars
 
@@ -80,14 +80,25 @@ class Rover
       elsif char == "M"
         move
       end
+    end
   end
-end
-end
 
+end
 
 rover = Rover.new(1, 2, "N")
-rover.instructions('LMLMLMLMM')
-puts rover.inspect
-my_rover = Rover.new(3, 3, "E")
-my_rover.instructions('MMRMMRMRRM')
-puts my_rover.inspect
+
+  while true
+    puts "Where to next, Space Commander?"
+    user_input = gets.chomp
+    rover.instructions(user_input)
+    puts "Your new coordinates are #{rover.inspect}"
+
+    if user_input == 'home'
+      puts "Safe journey home, Commander"
+      break
+    end
+end
+
+# my_rover = Rover.new(3, 3, "E")
+# my_rover.instructions('MMRMMRMRRM')
+# puts my_rover.inspect
