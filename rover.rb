@@ -85,18 +85,28 @@ class Rover
 
 end
 
-rover = Rover.new(1, 2, "N")
+# rover = Rover.new(1, 2, "N")
+puts "Welcome to space, buddy! Let's make a rover. Enter your starting x-coordinates:"
+starting_x = gets.chomp.to_i
+puts "Great, now your starting y-coordinates:"
+starting_y = gets.chomp.to_i
+puts "One last thing, which direction are you facing?"
+starting_direction = gets.chomp.to_s
 
-  while true
-    puts "Where to next, Space Commander?"
-    user_input = gets.chomp
-    rover.instructions(user_input)
-    puts "Your new coordinates are #{rover.inspect}"
+rover = Rover.new(starting_x, starting_y, starting_direction)
 
-    if user_input == 'home'
-      puts "Safe journey home, Commander"
-      break
-    end
+puts "Meet your rover: #{rover.inspect}"
+
+while true
+  puts "Where to, Space Commander?"
+  user_input = gets.chomp
+  rover.instructions(user_input)
+  puts "Your new coordinates are #{rover.inspect}"
+
+  if user_input == 'home'
+    puts "Safe journey home, Commander"
+    break
+  end
 end
 
 # my_rover = Rover.new(3, 3, "E")
